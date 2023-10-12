@@ -90,7 +90,7 @@ class ClassComp extends React.Component {
    * React 16.3버전 이후 사용하지 않음. componentDidMount로 사용
    */
   componentWillMount() {
-    console.log("class: component will mount"); // 순서1
+    console.log("class: component will mount");
   }
 
   /**
@@ -98,8 +98,13 @@ class ClassComp extends React.Component {
    * 주로 컴포넌트가 처음 DOM에 나타나는 순간 해야할 초기작업들
    *  */
   componentDidMount() {
-    console.log("class: component did mount"); //순서3
+    console.log("class: component did mount");
   }
+
+  /**
+   * props 또는 state를 변경했을 때, 리렌더링을 시작할지 여부 결정
+   * true 또는 false를 반환해야 한다.
+   */
   shouldComponentUpdate(nextProps, nextState) {
     console.log("class: shouldComponentUpdate");
     return true; // 렌더 호출. false를 리턴할 경우 렌더를 호출하지 않음
@@ -109,14 +114,22 @@ class ClassComp extends React.Component {
   componentWillUpdate(nextProps, nextState) {
     console.log("class: componentWillUpdate");
   }
+  /**
+   * 리렌더링을 완료한 후 실행
+   * 업데이트가 끝난 직후이므로, DOM 관련 처리를 해도 괜찮다
+   *  */
   componentDidUpdate(nextProps, nextState) {
     console.log("class: componentDidUpdate");
   }
+  /**
+   * 컴포넌트를 DOM에서 제거할 때 실행
+   * componentDidMount에서 등록한 이벤트, 타이머, 직접 생성한 DOM이 있다면, 여기서 제거작업을 해야한다.
+   */
   componentWillUnmount() {
     console.log("class: componentWillUnmount");
   }
   render() {
-    console.log("class: render"); //순서2
+    console.log("class: render");
 
     return (
       <div className="container">
