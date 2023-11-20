@@ -21,3 +21,7 @@
 ### componentWillUnmount
 - 컴포넌트를 DOM에서 제거할 때 실행
 - componentDidMount에서 등록한 이벤트, 타이머, 직접 생성한 DOM이 있다면, 여기서 제거작업을 해야한다.
+
+### createRef()
+- 클래스형 컴포넌트에서 ref 객체를 생성하는 방법
+- 함수형 컴포넌트에서는 useRef() hook을 사용하기 때문에 .current를 사용해 해당 객체에 접근한다.
